@@ -7,6 +7,8 @@ import React, { useEffect, useState } from 'react';
 import PostList from './component/PostList';
 import PostFiltersForm from './component/PostFiltersForm';
 import queryStirng from 'query-string';
+import Clock from './component/Clock';
+import BetterCLock from './component/BetterClock';
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -88,19 +90,23 @@ function App() {
     })
   }
 
+  const [showClock, setShowClock] = useState(true);
+
   return (
     <div className="App">
       <h1>Welcome to react hooks</h1>
-      {console.log('render')}
       {/* <ColorBox/>
       <TodoForm onSubmit={handleTodoFormSubmit}/>
       <TodoList todos={todoList} onTodoClick={handleTodoClick}/> */}
-      <PostFiltersForm onSubmit={handleFiltersChange}/>
+      {/* <PostFiltersForm onSubmit={handleFiltersChange}/>
       <PostList posts={postList}/>
       <Pagination 
         pagination={pagination}
         onPageChange={handlePageChange}
-      />
+      /> */}
+      {showClock && < Clock/>}
+      <BetterCLock/>
+      <button onClick={() => setShowClock(false)}>Hide Clock</button>
     </div>
   );
 }
